@@ -1,0 +1,81 @@
+#include<iostream>
+#define MAXSIZE 100
+#define ERROR 1
+
+typedef int Datatype;
+typedef struct
+{
+Datatype data[MAXSIZE];
+int length;
+}node;
+
+class LinkList_1
+{
+public:
+LinkList_1();
+LinkList_1(Datatype a[],int n);
+~LinkList_1();
+Datatype get_data(int n);
+int Locate(Datatype x);
+void Insert(Datatype x,int n);
+Datatype Delete(int n);
+int Empty();
+void PrintList();
+
+private:
+node shunxubiao;
+};
+
+LinkList_1::Insert(Datatype x,int n)
+{
+if(shunxubiao.length&lt;= n &amp;&amp; n&lt;=0)
+{
+return ERROR;
+}
+
+for(int e_1=shunxubiao.length-1,e_2=shunxubiao.length;e_1&gt;n;e_1--,e_2--)
+{
+this-&gt;shunxubiao.data [e_2]=this-&gt;shunxubiao.data[e_1];
+}
+shunxubiao.data[n]==x;
+}
+
+LinkList_1::Empty()
+{
+if(shunxubiao.length &lt; 0)
+{
+return 1;
+}
+return 0;
+}
+
+LinkList_1::Locate(Datatype x)
+{
+for(int n=0;n&lt;shunxubiao.length;n++)
+{
+if(shunxubiao.data[n]=x) return n;
+}
+return 0;
+}
+
+LinkList_1::Delete(int n)
+{
+if(shunxubiao.length&lt;= n &amp;&amp; n&lt;=0)
+{
+return ERROR;
+}
+
+for(int e_1=n,e_2=n+1;e_2&lt;=shunxubiao.length ;e_1++,e_2++)
+{
+shunxubiao.data[n]=shunxubiao.data[n+1];
+}
+}
+
+
+LinkList_1::PrintList()
+{
+for(int i=0;i&lt;=length;i++)
+{
+cout&lt;&lt;shunxubiao.data[i]&lt;&lt;endl;
+}
+}
