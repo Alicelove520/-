@@ -1,0 +1,134 @@
+#include&lt;iostream&gt;
+#define OK 0
+#define ERROR 1
+
+using namespace std;
+
+typedef int Datatype;
+typedef struct
+{
+Datatype data;
+Datatype* next;
+int length;
+}node;
+
+
+class LinkList
+{
+public:
+LinkList();
+LinkList(Datatype a[],int n);
+~LinkList();
+Datatype get_data(int n);
+int Locate(Datatype x);
+void Insert(Datatype x,int n);
+Datatype Delete(int n);
+int Empty();
+无效打印列表（）；
+
+私人的：
+节点*第一个；
+};
+
+链接列表::链接列表()
+{
+frist = 新节点；
+首先->下一个= NULL；
+}
+
+LinkList::LinkList(数据类型 a[],int n)
+{
+
+}
+
+LinkList::get_data(int n)
+{
+节点*工作；
+工作=第一；
+
+if(frist->length <= n)
+{
+返回错误；
+}
+for(int e=0;e<n;n++)
+{
+工作=工作->下一步；
+}
+
+返回工作->数据；
+}
+
+LinkList::插入（数据类型x，int n）
+{
+节点*工作；
+工作=第一；
+
+if(frist->长度 <= i)
+{
+返回错误；
+}
+
+for(int e=0;e<n-1,e++)
+{
+工作=工作->下一步；
+}
+
+新节点=新新节点*；
+
+new_node->下一个=工作->下一个；
+工作->下一个= new_node;
+}
+
+链接列表::删除(int n)
+{
+节点* work_1;
+节点* work_2;
+
+work_1 = 第一；
+
+
+if(frist->length <= n)
+{
+返回错误；
+}
+
+for(int e=0;e<n-1;e++)
+{
+工作_1 = 工作_1->下一个；
+}
+work_2 = work_1->下一个;
+
+工作_1->下一个=工作_2->下一个；
+删除work_2；
+}
+
+
+LinkList::Locate(数据类型 x)
+{
+节点*工作；
+工作=第一；
+
+for(int n=0;n<=(工作->长度);n++)
+{
+if(工作->数据 == x)
+{
+返回n+1；
+}
+}
+返回0；
+}
+
+链接列表::打印列表()
+{
+节点*工作；
+for(;工作->下一个!=NULL;工作=工作->下一个)
+{
+计算<<工作->数据<<结束；
+}
+}
+
+链接列表::空()
+{
+if(this->frist==NULL) 返回 1;
+否则返回1；
+}
